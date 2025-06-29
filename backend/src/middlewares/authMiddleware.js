@@ -1,6 +1,6 @@
 import jwt from 'jsonwebtoken'
 
-const SECRET = 'secret' // Usa variable de entorno en producción
+const SECRET = 'secret'
 
 export default (req, res, next) => {
   const auth = req.headers.authorization

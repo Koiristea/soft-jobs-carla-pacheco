@@ -17,7 +17,7 @@ export const registerUser = async (req, res) => {
 
 export const getUser = async (req, res) => {
   try {
-    const { email } = req.user // El email viene del token JWT
+    const { email } = req.user
     const { rows } = await pool.query(
       "SELECT email, rol, lenguage FROM usuarios WHERE email = $1",
       [email]
@@ -25,7 +25,7 @@ export const getUser = async (req, res) => {
     if (rows.length === 0) {
       return res.status(404).json({ error: "Usuario no encontrado" })
     }
-    res.json([rows[0]]) // Devuelve { email, rol, lenguage }
+    res.json([rows[0]])
   } catch (error) {
     console.log(error)
     res.status(500).json({ error: "Error al obtener usuario" })
