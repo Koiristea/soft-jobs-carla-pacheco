@@ -1,0 +1,1 @@
+Mil disculpas, no me di cuenta de el gigante error de dejar el repositorio en privado, además me di cuenta de que no se ve el .env.local ya que el archivo de apoyo contiene *.local en el gitignore y como tengo entendido esos archivos se dejan tal como están, no pregunté y me gustaría seaber si lo tenía que borrar o no, perdón otra vez, buen día.
