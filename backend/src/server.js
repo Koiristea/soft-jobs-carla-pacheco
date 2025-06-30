@@ -1,3 +1,4 @@
+import "dotenv/config"
 import express from "express"
 import cors from "cors"
 import usersRoutes from "./routes/users.js"
@@ -10,4 +11,5 @@ app.use(express.json())
 app.use("/usuarios", usersRoutes)
 app.use("/login", authRoutes)
 
-app.listen(3000, () => console.log("Servidor corriendo en puerto 3000"))
+const PORT = process.env.PORT || 3000
+app.listen(PORT, () => console.log(`Servidor corriendo en puerto ${PORT}`))

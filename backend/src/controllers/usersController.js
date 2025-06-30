@@ -4,6 +4,17 @@ import pool from "../db.js"
 export const registerUser = async (req, res) => {
   try {
     const { email, password, rol, lenguage } = req.body
+
+    const { rows } = await pool.query(
+      "SELECT * FROM usuarios WHERE email = $1",
+      [email]
+    )
+    if (rows.length > 0) {
+      return res.status(400).json({ error: "El correo ya está registrado" })
+    }
+
+    //el error aparece en consola y no también en la página porque evito editar el frontend que nos dan.
+
     const hashedPassword = await bcrypt.hash(password, 10)
     await pool.query(
       "INSERT INTO usuarios (email, password, rol, lenguage) VALUES ($1, $2, $3, $4)",

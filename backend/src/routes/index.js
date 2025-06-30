@@ -7,7 +7,6 @@ const router = Router()
 
 router.post('/usuarios', checkCredentials, registerUser)
 
-// Ruta para iniciar sesión
 router.post('/login', checkCredentials, loginUser)
 
 router.get('/perfil', verifyToken, getUserProfile)
